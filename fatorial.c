@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int fat(n){
-  if (n>1){
-    return(n*fat(n-1));
+  if (n==0){
+    return 1;
   }
   else{
-    return n;
+    return(n*fat(n-1));
   }
 }
 
