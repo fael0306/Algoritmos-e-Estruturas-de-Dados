@@ -9,9 +9,10 @@ int fib(n){
   }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     
     printf("%d\n",fib(10));
-  
+    
+    getch();
     return 0;
 }
