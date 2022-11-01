@@ -9,7 +9,7 @@ int fat(n){
   }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
   int n,r;
   
@@ -22,5 +22,6 @@ int main() {
   
   printf("%d\n",r);
   
+  getch();
    return 0;
 }
