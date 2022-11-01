@@ -11,6 +11,7 @@ float qvetor(float vetor[10]){
 		printf("%.2f ",vetor[k]);
 		resultado[k] = vetor[k]*vetor[k];
 	}
+  printf("\n");
 	for(k=0;k<10;k++){
 		printf("%.2f ",resultado[k]);
 	}
@@ -27,10 +28,10 @@ int main(int argc, char *argv[]) {
 	printf("Digite um número: ");
 	scanf("%f",&vetor[k]);
 	}
-	
+	printf("\n");
 	
 	qvetor(vetor);
 
-	getch();
+
 	return 0;
 }
