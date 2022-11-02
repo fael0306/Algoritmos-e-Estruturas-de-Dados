@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <conio.h>
 
 float qvetor(float vetor[10]){
 
