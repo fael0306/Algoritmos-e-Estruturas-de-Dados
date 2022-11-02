@@ -32,6 +32,6 @@ int main(int argc, char *argv[]) {
 	
 	qvetor(vetor);
 
-
+	getch();
 	return 0;
 }
