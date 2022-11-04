@@ -27,7 +27,7 @@ int main(int argc, char * argv[]) {
 
   for (k = 0; k < 10; k++) {
     printf("Digite um número: ");
-    scanf("%f", & vetor[k]);
+    scanf("%f", &vetor[k]);
   }
   printf("\n");
 
