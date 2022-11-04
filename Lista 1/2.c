@@ -5,36 +5,36 @@
 
 int maiorvalor(int vetor[10]){
 
-int aux;
+int maior,k,i,j;
 printf("");
-for(int k=0;k<10;k++){
-printf("%d ",vetor[k]);
+
+for(k=0;k<10;k++){
+	printf("%d ",vetor[k]);
 }
 
-for(int i=0;i<10;i++){
-for(int j=0;j<10;j++){
-	if(vetor[i]>vetor[j]){
-		aux = vetor[i];
-		vetor[i]=vetor[j];
-		vetor[j]=aux;
-	}
-}	
+maior=vetor[0];
+for(k=1;k<10;k++){
+	if(vetor[k]>maior){
+		maior=vetor[k];
+			}
 }
-printf("\nO maior valor Ã©: %d",vetor[0]);
+
+printf("\nO maior valor é: %d",maior);
+
 }
 
 int main(int argc, char** argv) {
 	
 	setlocale(LC_ALL,"portuguese");
 	
-	int vetor[10];
-	
-	for(int k=0;k<10;k++){
-printf("Digite um valor: ");
-scanf("%d",&vetor[k]);
-}
+	int vetor[10],k;
 
-maiorvalor(vetor);
+	for(k=0;k<10;k++){
+	printf("Digite um valor: ");
+	scanf("%d",&vetor[k]);
+	}
+
+	maiorvalor(vetor);
 	
     getch();
 	return 0;
