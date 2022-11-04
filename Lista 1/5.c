@@ -7,7 +7,7 @@ bool primo(int n) {
 
   int k;
 
-  for (k = 2; k < n; k++) {
+  for (k = 2; k < n/2; k++) {
     if (n % k == 0) {
       return false;
     }
