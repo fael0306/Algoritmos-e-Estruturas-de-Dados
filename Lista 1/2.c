@@ -3,39 +3,39 @@
 #include <locale.h>
 #include <conio.h>
 
-int maiorvalor(int vetor[10]){
+int maiorvalor(int vetor[10]) {
 
-int maior,k,i,j;
-printf("");
+  int maior, k, i, j;
+  printf("");
 
-for(k=0;k<10;k++){
-	printf("%d ",vetor[k]);
+  for (k = 0; k < 10; k++) {
+    printf("%d ", vetor[k]);
+  }
+
+  maior = vetor[0];
+  for (k = 1; k < 10; k++) {
+    if (vetor[k] > maior) {
+      maior = vetor[k];
+    }
+  }
+
+  printf("\nO maior valor Ã©: %d", maior);
+
 }
 
-maior=vetor[0];
-for(k=1;k<10;k++){
-	if(vetor[k]>maior){
-		maior=vetor[k];
-			}
-}
+int main(int argc, char ** argv) {
 
-printf("\nO maior valor é: %d",maior);
+  setlocale(LC_ALL, "portuguese");
 
-}
+  int vetor[10], k;
 
-int main(int argc, char** argv) {
-	
-	setlocale(LC_ALL,"portuguese");
-	
-	int vetor[10],k;
+  for (k = 0; k < 10; k++) {
+    printf("Digite um valor: ");
+    scanf("%d", &vetor[k]);
+  }
 
-	for(k=0;k<10;k++){
-	printf("Digite um valor: ");
-	scanf("%d",&vetor[k]);
-	}
+  maiorvalor(vetor);
 
-	maiorvalor(vetor);
-	
-    getch();
-	return 0;
+  getch();
+  return 0;
 }
