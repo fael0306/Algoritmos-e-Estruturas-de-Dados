@@ -22,7 +22,7 @@ int main(int argc, char * argv[]) {
   int n, k;
 
   printf("Digite um número: ");
-  scanf("%d", & n);
+  scanf("%d", &n);
 
   printf("\nNúmeros primos até %d: ", n);
 
