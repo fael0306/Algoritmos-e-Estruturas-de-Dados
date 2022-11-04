@@ -3,10 +3,13 @@
 #include <locale.h>
 
 int pot(int x, int n) {
-  if (n > 0) {
+  if (n >= 0) {
+    if (n == 0) {
+      return 1;
+    }
     return (x * pot(x, n - 1));
   }
-  return 1;
+  return -1;
 }
 
 int main(int argc, char * argv[]) {
