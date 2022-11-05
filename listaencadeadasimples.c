@@ -1,43 +1,35 @@
-// Falhando
-
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct No {
   int n;
   struct No * prox;
-} No;
+}
+No;
 
 typedef struct Lista {
-  No *inicio, *fim;
+  No * inicio;
   int tam;
-} Lista;
+}
+Lista;
 
-void insere(No *p, int x){
-  No *novo;
+void insere(Lista * p, int x) {
+  No * novo;
   novo = malloc(sizeof(No));
-  novo->n = x;
-  novo->prox = p->prox;
-  p->prox = novo;
-  }
-  
-void insereprimeiro(No *p, int x){
-  p = malloc(sizeof(No));
-  p->n=x;
-  p->prox = NULL;
-  }
+  novo -> n = x;
+
+  novo -> prox = p -> inicio;
+  p -> inicio = novo;
+}
 
 int main() {
 
   struct Lista lista1;
 
-  No *l;
-  
-  // Colocando o primeiro elemento da lista (cabeça)
-  insereprimeiro(l,5);
-  
+  No * l = malloc(sizeof(Lista));
+
   // Inserindo após o primeiro elemento estar na lista
-  insere(l,2);
+  insere(l, 2);
 
   return 0;
 }
