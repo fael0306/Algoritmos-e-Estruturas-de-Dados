@@ -28,7 +28,6 @@ int main() {
 
   No * l = malloc(sizeof(Lista));
 
-  // Inserindo após o primeiro elemento estar na lista
   insere(l, 2);
 
   return 0;
