@@ -23,14 +23,13 @@ void insere(Lista * p, int x) {
 }
 
 int main() {
-
   struct Lista lista1;
 
   Lista * l = malloc(sizeof(Lista));
 
   insere(l, 2);
-  insere(l,10);
-  
+  insere(l, 10);
+
   getch();
   return 0;
 }
