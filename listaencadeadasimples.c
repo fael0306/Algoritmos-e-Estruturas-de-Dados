@@ -29,6 +29,7 @@ int main() {
   No * l = malloc(sizeof(Lista));
 
   insere(l, 2);
-
+  
+  getch();
   return 0;
 }
