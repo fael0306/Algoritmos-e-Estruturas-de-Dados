@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include <locale.h>
 
+// Complexidade: quantos passos são executados
+
+// Melhor caso: o número procurado está no meio -> O(1) no máximo 1
+// Pior caso: o número procurado está em primeiro ou último -> O(sqrt(n)) no máximo sqrt(n)
+// Caso médio: O((sqrt(n)+1)/2)
+
 int buscabinaria(int n, int vetor[], int e, int d) {
 
   int meio = (e + d) / 2;
