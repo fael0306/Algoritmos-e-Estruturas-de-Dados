@@ -1,5 +1,11 @@
 #include <stdio.h>
 
+// Complexidade: quantos passos são executados
+
+// Melhor caso: o número procurado está no meio -> O(1) no máximo 1
+// Pior caso: o número de entrada -> O(n-1) no máximo n-1
+// Caso médio: O(n/2)
+
 int fat(n){
   if (n==0){
     return 1;
