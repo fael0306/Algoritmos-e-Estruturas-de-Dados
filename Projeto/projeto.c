@@ -116,7 +116,6 @@ int main(int argc, char * argv[]) {
       }
     }
     break;
-
   case 3:
     if (sizeof(v) / sizeof(int) == 0) {
       printf("\nO vetor está vazio.");
