@@ -87,6 +87,51 @@ int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
 
+  int op, v[10], opbusca, opord, r, n;
+
+  printf("1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4-Sair\n\n");
+  scanf("%d", & op);
+
+  switch (op) {
+  case 1:
+    preencher(v);
+    break;
+  case 2:
+    if (sizeof(v) / sizeof(int) == 0) {
+      printf("\nO vetor está vazio.");
+    } else {
+      printf("\nDigite o número que deseja buscar: ");
+      scanf("%d", & n);
+      printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n");
+      scanf("%c", & opbusca);
+      if (strcmp(opbusca, "a") == 0) {
+        r = buscabinaria(n, v, v[0], v[10]);
+      } else if (strcmp(opbusca, "b") == 0) {
+        r = buscasequencial(n, v);
+      } else {
+        printf("\nOpção inválida.");
+      }
+    }
+    break;
+  case 3:
+    if (sizeof(vetor) / sizeof(int) == 0) {
+      printf("\nO vetor está vazio.");
+    } else {
+      printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
+      scanf("%c", & opord);
+      if (strcmp(opord, "a") == 0) {
+        quicksort(v, v[0], v[sizeof(v) / sizeof(int)]);
+        print(v);
+      } else if (strcmp(opbusca, "b") == 0) {
+        bubblesort(v);
+        print(v);
+      } else {
+        printf("\nOpção inválida.");
+      }
+    }
+    break;
+  }
+
   getch();
   return 0;
 }
