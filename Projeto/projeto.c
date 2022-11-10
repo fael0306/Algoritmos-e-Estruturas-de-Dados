@@ -5,9 +5,10 @@
 void preencher(int vetor[]) {
   int k;
   for (k = 0; k < 10; k++) {
-    printf("Digite o número: ");
+    printf("\nDigite o número: ");
     scanf("%d", & vetor[k]);
   }
+  printf("\n");
 }
 
 int buscabinaria(int n, int vetor[], int e, int d) {
@@ -89,7 +90,8 @@ int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
 
-  int op = 0, v[10], opbusca, opord, r, n;
+  int op = 0, v[10], opord, r, n;
+  char opbusca[2];
 
   while (op != 4) {
 
@@ -97,7 +99,6 @@ int main(int argc, char * argv[]) {
     scanf("%d", & op);
 
     switch (op) {
-      // Após cada case, é necessária uma forma de refazer a pergunta principal
     case 1:
       preencher(v);
       break;
@@ -114,7 +115,7 @@ int main(int argc, char * argv[]) {
         } else if (strcmp(opbusca, "b") == 0) {
           r = buscasequencial(n, v);
         } else {
-          printf("\nOpção inválida.");
+          printf("\nOpção inválida.\n\n");
         }
       }
       break;
