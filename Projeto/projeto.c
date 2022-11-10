@@ -96,6 +96,7 @@ int main(int argc, char * argv[]) {
 
   switch (op) {
     // Após cada case, é necessária uma forma de refazer a pergunta principal
+    // Uma ideia é fazer uma função apenas para perguntar e tentar desenvolver de alguma forma recursiva (a resposta como parâmetro)
   case 1:
     preencher(v);
     break;
