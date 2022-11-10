@@ -29,6 +29,7 @@ int buscabinaria(int n, int vetor[], int e, int d) {
 }
 
 int buscasequencial(int n, int vetor[]) {
+  int k;
   for (k = 0; k < 10; k++) {
     if (vetor[k] == n) {
       return k;
@@ -77,6 +78,7 @@ void bubblesort(int vetor[]) {
 }
 
 void print(int v[]) {
+  int k;
   printf("");
   for (k = 0; k < 10; k++) {
     printf("%d ", v[k]);
@@ -93,9 +95,11 @@ int main(int argc, char * argv[]) {
   scanf("%d", & op);
 
   switch (op) {
+    // Após cada case é necessária uma forma de refazer a pergunta principal
   case 1:
     preencher(v);
     break;
+
   case 2:
     if (sizeof(v) / sizeof(int) == 0) {
       printf("\nO vetor está vazio.");
@@ -113,8 +117,9 @@ int main(int argc, char * argv[]) {
       }
     }
     break;
+
   case 3:
-    if (sizeof(vetor) / sizeof(int) == 0) {
+    if (sizeof(v) / sizeof(int) == 0) {
       printf("\nO vetor está vazio.");
     } else {
       printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
