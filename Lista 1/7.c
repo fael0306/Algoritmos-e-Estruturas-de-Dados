@@ -2,16 +2,12 @@
 #include <stdlib.h>
 #include <locale.h>
 
-int k = 0;
-
-int printlista(int n) {
-
-  printf("%d ", k);
-  if (n > k) {
-    k++;
-    return printlista(n);
+void printlista(int n) {
+  if (n == 0) {
+    printf("%d ", n);
   } else {
-    return 0;
+    printlista(n - 1);
+    printf("%d ", n);
   }
 }
 
@@ -22,7 +18,7 @@ int main(int argc, char * argv[]) {
   int n;
 
   printf("Digite um número: ");
-  scanf("%d", &n);
+  scanf("%d", & n);
   printf("\nNúmeros de 0 até %d em ordem crescente: ", n);
   printlista(n);
 
