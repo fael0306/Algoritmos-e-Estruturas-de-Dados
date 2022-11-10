@@ -12,9 +12,7 @@ void preencher(int vetor[]) {
 }
 
 int buscabinaria(int n, int vetor[], int e, int d) {
-
   int meio = (e + d) / 2;
-
   if (vetor[meio] == n) {
     return meio;
   }
