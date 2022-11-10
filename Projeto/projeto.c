@@ -95,11 +95,10 @@ int main(int argc, char * argv[]) {
   scanf("%d", & op);
 
   switch (op) {
-    // Após cada case é necessária uma forma de refazer a pergunta principal
+    // Após cada case, é necessária uma forma de refazer a pergunta principal
   case 1:
     preencher(v);
     break;
-
   case 2:
     if (sizeof(v) / sizeof(int) == 0) {
       printf("\nO vetor está vazio.");
@@ -134,6 +133,9 @@ int main(int argc, char * argv[]) {
         printf("\nOpção inválida.");
       }
     }
+    break;
+  case 4:
+    exit();
     break;
   }
 
