@@ -130,7 +130,7 @@ int main(int argc, char * argv[]) {
         printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
         scanf("%s", & opord);
         if (strcmp(opord, "a") == 0) {
-          quicksort(v, v[0], v[sizeof(v) / sizeof(int)]);
+          quicksort(v, v[0], v[9]);
           print(v);
         } else if (strcmp(opord, "b") == 0) {
           bubblesort(v);
