@@ -38,30 +38,35 @@ int buscasequencial(int n, int vetor[]) {
   return -1;
 }
 
-void quicksort(int values[], int began, int end) {
-  int i, j, pivo, aux;
-  i = began;
-  j = end - 1;
-  pivo = values[(began + end) / 2];
+void quicksort(int * a, int left, int right) {
+  int i, j, x, y;
+
+  i = left;
+  j = right;
+  x = a[(left + right) / 2];
+
   while (i <= j) {
-    while (values[i] < pivo && i < end) {
+    while (a[i] < x && i < right) {
       i++;
     }
-    while (values[j] > pivo && j > began) {
+    while (a[j] > x && j > left) {
       j--;
     }
     if (i <= j) {
-      aux = values[i];
-      values[i] = values[j];
-      values[j] = aux;
+      y = a[i];
+      a[i] = a[j];
+      a[j] = y;
       i++;
       j--;
     }
   }
-  if (j > began)
-    quicksort(values, began, j + 1);
-  if (i < end)
-    quicksort(values, i, end);
+
+  if (j > left) {
+    quicksort(a, left, j);
+  }
+  if (i < right) {
+    quicksort(a, i, right);
+  }
 }
 
 void bubblesort(int vetor[]) {
@@ -101,8 +106,8 @@ int main(int argc, char * argv[]) {
     case 1:
       preencher(v);
       break;
-    
-      case 2:
+
+    case 2:
       if (sizeof(v) / sizeof(int) == 0) {
         printf("\nO vetor está vazio.");
       } else {
@@ -130,7 +135,7 @@ int main(int argc, char * argv[]) {
         printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
         scanf("%s", & opord);
         if (strcmp(opord, "a") == 0) {
-          quicksort(v, v[0], v[9]);
+          quicksort(v, 0, 9);
           print(v);
         } else if (strcmp(opord, "b") == 0) {
           bubblesort(v);
@@ -142,6 +147,5 @@ int main(int argc, char * argv[]) {
       break;
     }
   }
-  getch();
   return 0;
 }
