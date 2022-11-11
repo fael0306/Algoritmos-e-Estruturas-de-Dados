@@ -36,7 +36,7 @@ int main(int argc, char * argv[]) {
   printf("Digite um número: ");
   scanf("%d", & n);
 
-  r = buscabinaria(n, vetor, vetor[0], vetor[sizeof(vetor) / sizeof(int)]);
+  r = buscabinaria(n, vetor, 0, 9);
 
   printf("\nA posição do número no vetor é: %d", r);
 
