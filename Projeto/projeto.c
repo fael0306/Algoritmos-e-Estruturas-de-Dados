@@ -20,13 +20,11 @@ int buscabinaria(int n, int vetor[], int e, int d) {
   }
   if (e >= d) {
     return -1;
-  } 
-  else if (vetor[meio] < n) {
-      return buscabinaria(n, vetor, meio + 1, d);
-    } 
-  else {
-      return buscabinaria(n, vetor, e, meio - 1);
-    }
+  } else if (vetor[meio] < n) {
+    return buscabinaria(n, vetor, meio + 1, d);
+  } else {
+    return buscabinaria(n, vetor, e, meio - 1);
+  }
 }
 
 int buscasequencial(int n, int vetor[]) {
@@ -143,17 +141,17 @@ int main(int argc, char * argv[]) {
           bubblesort(v);
           print(v);
         } else {
-        	
+
           printf("\nOpção inválida.");
         }
       }
       break;
     case 4:
-    	return 0;
+      return 0;
     }
-    
 
   }
+  
   getch();
   return 0;
 }
