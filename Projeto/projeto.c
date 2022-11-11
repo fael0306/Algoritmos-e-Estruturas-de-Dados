@@ -132,7 +132,7 @@ int main(int argc, char * argv[]) {
         if (strcmp(opord, "a") == 0) {
           quicksort(v, v[0], v[sizeof(v) / sizeof(int)]);
           print(v);
-        } else if (strcmp(opbusca, "b") == 0) {
+        } else if (strcmp(opord, "b") == 0) {
           bubblesort(v);
           print(v);
         } else {
