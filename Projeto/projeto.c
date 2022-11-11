@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <string.h>
-
+#include <conio.h>
 void preencher(int vetor[]) {
   int k;
   for (k = 0; k < 10; k++) {
@@ -11,21 +11,44 @@ void preencher(int vetor[]) {
   }
   printf("\n");
 }
+/*
+int buscabinaria(int n, int vetor[], int e, int d) {
+ 	if (d < e){
+ 		return -1;
+	 }
+	int meio = (e+d)/2;
+	if(vetor[meio] == n){
+		return meio;
+	}
+	else if(vetor[meio] > n){
+		return buscabinaria(n,vetor,e,meio -1);
+	}
+	else{
+		return buscabinaria(n,vetor,meio+1,d);
+	}
+  
+}
+*/
 
 int buscabinaria(int n, int vetor[], int e, int d) {
+
   int meio = (e + d) / 2;
+
   if (vetor[meio] == n) {
     return meio;
   }
+  
   if (e >= d) {
     return -1;
-  } else {
-    if (vetor[meio] < n) {
+  } 
+  
+  else if (vetor[meio] < n) {
       return buscabinaria(n, vetor, meio + 1, d);
-    } else {
+    } 
+  else {
       return buscabinaria(n, vetor, e, meio - 1);
     }
-  }
+  
 }
 
 int buscasequencial(int n, int vetor[]) {
@@ -93,7 +116,7 @@ void print(int v[]) {
 int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
-
+  int opAux = 0;
   int op = 0, v[10], r, n;
   char opbusca[2], opord[2];
 
@@ -105,22 +128,23 @@ int main(int argc, char * argv[]) {
     switch (op) {
     case 1:
       preencher(v);
+      opAux++;
       break;
 
     case 2:
-      if (sizeof(v) / sizeof(int) == 0) {
-        printf("\nO vetor está vazio.");
+      if (opAux == 0) {
+        printf("\nO vetor não foi inicializado.");
       } else {
         printf("\nDigite o número que deseja buscar: ");
         scanf("%d", & n);
         printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n");
         scanf("%s", & opbusca);
         if (strcmp(opbusca, "a") == 0) {
-          r = buscabinaria(n, v, 0, 9);
-          printf("%d\n", r);
+          r = buscabinaria(n, v, 0, 10);
+          printf("\nO número está na posição: %d\n", r);
         } else if (strcmp(opbusca, "b") == 0) {
           r = buscasequencial(n, v);
-          printf("%d\n", r);
+          printf("\nO número está na posição: %d\n", r);
         } else {
           printf("\nOpção inválida.\n\n");
         }
@@ -129,8 +153,8 @@ int main(int argc, char * argv[]) {
       break;
 
     case 3:
-      if (sizeof(v) / sizeof(int) == 0) {
-        printf("\nO vetor está vazio.");
+      if (opAux == 0) {
+        printf("\nO vetor não foi inicializado.");
       } else {
         printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
         scanf("%s", & opord);
@@ -141,11 +165,16 @@ int main(int argc, char * argv[]) {
           bubblesort(v);
           print(v);
         } else {
+        	
           printf("\nOpção inválida.");
         }
       }
       break;
+    case 4:
+    	return 0;
     }
+    
+
   }
   getch();
   return 0;
