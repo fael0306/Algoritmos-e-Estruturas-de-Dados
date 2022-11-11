@@ -3,6 +3,7 @@
 #include <locale.h>
 #include <string.h>
 #include <conio.h>
+
 void preencher(int vetor[]) {
   int k;
   for (k = 0; k < 10; k++) {
@@ -11,44 +12,21 @@ void preencher(int vetor[]) {
   }
   printf("\n");
 }
-/*
-int buscabinaria(int n, int vetor[], int e, int d) {
- 	if (d < e){
- 		return -1;
-	 }
-	int meio = (e+d)/2;
-	if(vetor[meio] == n){
-		return meio;
-	}
-	else if(vetor[meio] > n){
-		return buscabinaria(n,vetor,e,meio -1);
-	}
-	else{
-		return buscabinaria(n,vetor,meio+1,d);
-	}
-  
-}
-*/
 
 int buscabinaria(int n, int vetor[], int e, int d) {
-
   int meio = (e + d) / 2;
-
   if (vetor[meio] == n) {
     return meio;
   }
-  
   if (e >= d) {
     return -1;
   } 
-  
   else if (vetor[meio] < n) {
       return buscabinaria(n, vetor, meio + 1, d);
     } 
   else {
       return buscabinaria(n, vetor, e, meio - 1);
     }
-  
 }
 
 int buscasequencial(int n, int vetor[]) {
