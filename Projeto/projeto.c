@@ -89,8 +89,8 @@ int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
 
-  int op = 0, v[10], opord, r, n;
-  char opbusca[2];
+  int op = 0, v[10], r, n;
+  char opbusca[2], opord[2];
 
   while (op != 4) {
 
@@ -127,7 +127,7 @@ int main(int argc, char * argv[]) {
         printf("\nO vetor está vazio.");
       } else {
         printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
-        scanf("%c", & opord);
+        scanf("%s", & opord);
         if (strcmp(opord, "a") == 0) {
           quicksort(v, v[0], v[sizeof(v) / sizeof(int)]);
           print(v);
