@@ -101,7 +101,8 @@ int main(int argc, char * argv[]) {
     case 1:
       preencher(v);
       break;
-    case 2:
+    
+      case 2:
       if (sizeof(v) / sizeof(int) == 0) {
         printf("\nO vetor está vazio.");
       } else {
