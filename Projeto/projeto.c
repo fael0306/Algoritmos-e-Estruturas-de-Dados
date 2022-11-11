@@ -94,7 +94,7 @@ int main(int argc, char * argv[]) {
 
   while (op != 4) {
 
-    printf("1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
+    printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
     scanf("%d", & op);
 
     switch (op) {
