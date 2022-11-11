@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
+#include <string.h>
 
 void preencher(int vetor[]) {
   int k;
@@ -105,16 +106,19 @@ int main(int argc, char * argv[]) {
         printf("\nO vetor está vazio.");
       } else {
         printf("\nDigite o número que deseja buscar: ");
-        scanf("%d", & n);
+        scanf("%d", &n);
         printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n");
-        scanf("%c", & opbusca);
+        scanf("%s", &opbusca);
         if (strcmp(opbusca, "a") == 0) {
-          r = buscabinaria(n, v, v[0], v[10]);
+          r = buscabinaria(n, v, v[0], v[9]);
+          printf("%d\n", r);
         } else if (strcmp(opbusca, "b") == 0) {
           r = buscasequencial(n, v);
+          printf("%d\n", r);
         } else {
           printf("\nOpção inválida.\n\n");
         }
+
       }
       break;
 
@@ -137,6 +141,5 @@ int main(int argc, char * argv[]) {
       break;
     }
   }
-  getch();
   return 0;
 }
