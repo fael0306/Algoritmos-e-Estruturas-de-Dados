@@ -104,6 +104,7 @@ void print(int v[]) {
 int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
+  
   int opAux = 0;
   int op, v[10], r, n;
   char opbusca[2], opord[2];
