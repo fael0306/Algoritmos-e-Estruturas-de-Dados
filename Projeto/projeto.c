@@ -7,7 +7,7 @@
 void preencher(int vetor[]) {
   int k;
   for (k = 0; k < 10; k++) {
-    printf("\nDigite o nÃºmero: ");
+    printf("\nDigite o número: ");
     scanf("%d", & vetor[k]);
   }
   printf("\n");
@@ -103,15 +103,14 @@ void print(int v[]) {
 int main(int argc, char * argv[]) {
 
   setlocale(LC_ALL, "portuguese");
-  
+
   int opAux = 0;
   int op, v[10], r, n;
   char opbusca[2], opord[2];
 
-  printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
-  scanf("%d", & op);
-
-  while (op != 4) {
+  do {
+    printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
+    scanf("%d", & op);
 
     switch (op) {
 
@@ -122,47 +121,47 @@ int main(int argc, char * argv[]) {
 
     case 2:
       if (opAux == 0) {
-        printf("\nO vetor nÃ£o foi inicializado.");
+        printf("\nO vetor não foi inicializado.");
       } else {
-        printf("\nDigite o nÃºmero que deseja buscar: ");
+        printf("\nDigite o número que deseja buscar: ");
         scanf("%d", & n);
-        printf("\nQual a operaÃ§Ã£o de busca gostaria de utilizar?\na) Busca BinÃ¡ria\nb) Busca Sequencial\n");
+        printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n\n");
         scanf("%s", & opbusca);
         if (strcmp(opbusca, "a") == 0) {
           r = buscabinaria(n, v, 0, 10);
-          printf("\nO nÃºmero estÃ¡ na posiÃ§Ã£o: %d\n", r);
+          printf("\nO número está na posição: %d\n", r);
         } else if (strcmp(opbusca, "b") == 0) {
           r = buscasequencial(n, v);
-          printf("\nO nÃºmero estÃ¡ na posiÃ§Ã£o: %d\n", r);
+          printf("\nO número está na posição: %d\n", r);
         } else {
-          printf("\nOpÃ§Ã£o invÃ¡lida.\n\n");
+          printf("\nOpção inválida.\n\n");
         }
       }
       break;
 
     case 3:
       if (opAux == 0) {
-        printf("\nO vetor nÃ£o foi inicializado.");
+        printf("\nO vetor não foi inicializado.");
       } else {
-        printf("\nQual mÃ©todo de ordenaÃ§Ã£o gostaria de utilizar?\na) Insertion Sort\nb) Bubble Sort\n");
+        printf("\nQual método de ordenação gostaria de utilizar?\na) Insertion Sort\nb) Bubble Sort\n\n");
         scanf("%s", & opord);
         if (strcmp(opord, "a") == 0) {
           insertionsort(v);
-          print(v);
           printf("");
+          print(v);
+          printf("\n");
         } else if (strcmp(opord, "b") == 0) {
           bubblesort(v);
-          print(v);
           printf("");
+          print(v);
+          printf("\n");
         } else {
-          printf("\nOpÃ§Ã£o invÃ¡lida.");
+          printf("\nOpção inválida.");
         }
       }
       break;
     }
-    printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
-    scanf("%d", & op);
-  }
+  } while (op != 4);
 
   getch();
   return 0;
