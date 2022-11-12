@@ -159,10 +159,10 @@ int main(int argc, char * argv[]) {
       }
       break;
     }
-
     printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
     scanf("%d", & op);
   }
+  
   getch();
   return 0;
 }
