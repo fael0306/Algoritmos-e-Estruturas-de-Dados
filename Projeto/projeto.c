@@ -146,13 +146,14 @@ int main(int argc, char * argv[]) {
         printf("\nQual método de ordenação gostaria de utilizar?\na) Insertion Sort\nb) Bubble Sort\n\n");
         scanf("%s", & opord);
         if (strcmp(opord, "a") == 0) {
-          insertionsort(v);
           printf("");
+          insertionsort(v);
+          printf("\n");
           print(v);
           printf("\n");
         } else if (strcmp(opord, "b") == 0) {
           bubblesort(v);
-          printf("");
+          printf("\n");
           print(v);
           printf("\n");
         } else {
