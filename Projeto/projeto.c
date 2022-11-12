@@ -37,7 +37,7 @@ int buscasequencial(int n, int vetor[]) {
   return -1;
 }
 
-void quicksort(int * a, int left, int right) {
+/*void quicksort(int * a, int left, int right) {
   int i, j, x, y;
 
   i = left;
@@ -66,6 +66,18 @@ void quicksort(int * a, int left, int right) {
   if (i < right) {
     quicksort(a, i, right);
   }
+}*/
+
+void insertionsort(int * a) {
+  int i, j, tmp;
+
+  for (i = 1; i < 10; i++) {
+    tmp = a[i];
+    for (j = i - 1; j >= 0 && tmp < a[j]; j--) {
+      a[j + 1] = a[j];
+    }
+    a[j + 1] = tmp;
+  }
 }
 
 void bubblesort(int vetor[]) {
@@ -91,66 +103,69 @@ void print(int v[]) {
 
 int main(int argc, char * argv[]) {
 
-    setlocale(LC_ALL, "portuguese");
-    int opAux = 0;
-    int op, v[10], r, n;
-    char opbusca[2], opord[2];
+  setlocale(LC_ALL, "portuguese");
+  int opAux = 0;
+  int op, v[10], r, n;
+  char opbusca[2], opord[2];
+
+  printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
+  scanf("%d", & op);
+
+  while (op != 4) {
+
+    switch (op) {
+    case 1:
+      preencher(v);
+      opAux++;
+      break;
+
+    case 2:
+      if (opAux == 0) {
+        printf("\nO vetor não foi inicializado.");
+      } else {
+        printf("\nDigite o número que deseja buscar: ");
+        scanf("%d", & n);
+        printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n");
+        scanf("%s", & opbusca);
+        if (strcmp(opbusca, "a") == 0) {
+          r = buscabinaria(n, v, 0, 10);
+          printf("\nO número está na posição: %d\n", r);
+        } else if (strcmp(opbusca, "b") == 0) {
+          r = buscasequencial(n, v);
+          printf("\nO número está na posição: %d\n", r);
+        } else {
+          printf("\nOpção inválida.\n\n");
+        }
+
+      }
+      break;
+
+    case 3:
+      if (opAux == 0) {
+        printf("\nO vetor não foi inicializado.");
+      } else {
+        printf("\nQual método de ordenação gostaria de utilizar?\na) Insertion Sort\nb) Bubble Sort\n");
+        scanf("%s", & opord);
+        if (strcmp(opord, "a") == 0) {
+          insertionsort(v);
+          print(v);
+          printf("");
+        } else if (strcmp(opord, "b") == 0) {
+          bubblesort(v);
+          print(v);
+          printf("");
+        } else {
+
+          printf("\nOpção inválida.");
+        }
+      }
+      break;
+
+    }
 
     printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
     scanf("%d", & op);
-
-    while (op != 4) {
-
-      switch (op) {
-      case 1:
-        preencher(v);
-        opAux++;
-        break;
-
-      case 2:
-        if (opAux == 0) {
-          printf("\nO vetor não foi inicializado.");
-        } else {
-          printf("\nDigite o número que deseja buscar: ");
-          scanf("%d", & n);
-          printf("\nQual a operação de busca gostaria de utilizar?\na) Busca Binária\nb) Busca Sequencial\n");
-          scanf("%s", & opbusca);
-          if (strcmp(opbusca, "a") == 0) {
-            r = buscabinaria(n, v, 0, 10);
-            printf("\nO número está na posição: %d\n", r);
-          } else if (strcmp(opbusca, "b") == 0) {
-            r = buscasequencial(n, v);
-            printf("\nO número está na posição: %d\n", r);
-          } else {
-            printf("\nOpção inválida.\n\n");
-          }
-
-        }
-        break;
-
-      case 3:
-        if (opAux == 0) {
-          printf("\nO vetor não foi inicializado.");
-        } else {
-          printf("\nQual método de ordenação gostaria de utilizar?\na) Quicksort\nb) Bubblesort\n");
-          scanf("%s", & opord);
-          if (strcmp(opord, "a") == 0) {
-            quicksort(v, 0, 9);
-            print(v);
-          } else if (strcmp(opord, "b") == 0) {
-            bubblesort(v);
-            print(v);
-          } else {
-
-            printf("\nOpção inválida.");
-          }
-        }
-        break;
-
-        printf("\n1 - Preencher o vetor\n2 - Buscar por um valor\n3 - Ordenar o vetor\n4 - Sair\n\n");
-        scanf("%d", & op);
-      }
-
-      getch();
-      return 0;
-    }
+  }
+  getch();
+  return 0;
+}
