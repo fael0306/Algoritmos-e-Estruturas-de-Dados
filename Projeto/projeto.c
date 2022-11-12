@@ -154,7 +154,6 @@ int main(int argc, char * argv[]) {
           print(v);
           printf("");
         } else {
-
           printf("\nOpção inválida.");
         }
       }
