@@ -70,7 +70,6 @@ int buscasequencial(int n, int vetor[]) {
 
 void insertionsort(int * a) {
   int i, j, tmp;
-
   for (i = 1; i < 10; i++) {
     tmp = a[i];
     for (j = i - 1; j >= 0 && tmp < a[j]; j--) {
