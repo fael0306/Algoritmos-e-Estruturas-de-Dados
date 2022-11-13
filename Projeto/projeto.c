@@ -161,6 +161,11 @@ int main(int argc, char * argv[]) {
         }
       }
       break;
+
+    default:
+      if (op != 4) {
+        printf("\nO número digitado não está entre as opções. Tente novamente.\n\n");
+      }
     }
   } while (op != 4);
 
