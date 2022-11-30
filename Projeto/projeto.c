@@ -1,8 +1,8 @@
 /*
 Rafael Manteiga Balbino - 201920649111
-Danilo Trigo Minervino Figueiredo
-Arthur Hernandez Perez
-Mariana Martins Chagas
+Danilo Trigo Minervino Figueiredo - 201920608311
+Arthur Hernandez Perez - 201920439411
+Mariana Martins Chagas - 201920442911
 */
 
 #include <stdio.h>
