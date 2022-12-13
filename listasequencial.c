@@ -25,6 +25,19 @@ void inserirnofinal(listaSeq * L, int num) {
   }
 }
 
+void inserirnoinicio(listaSeq * L, int num) {
+  int k;
+  if (L -> n == 10) {
+    printf("Lista cheia");
+  } else {
+    while (L -> n >= 0) {
+      L -> valores[L -> n + 1] = L -> valores[L -> n];
+      L -> n--;
+    }
+  }
+  L -> valores[0] = num;
+}
+
 void inicializar(listaSeq * L) {
   L -> n = 0;
 }
@@ -39,6 +52,7 @@ int main() {
   inserirnofinal( & lista, 1);
   inserirnofinal( & lista, 2);
   inserirnofinal( & lista, 4);
+  inserirnoinicio( & lista, 6);
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
 
