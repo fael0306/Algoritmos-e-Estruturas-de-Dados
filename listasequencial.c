@@ -40,9 +40,9 @@ void inserirnoinicio(listaSeq * L, int num) {
 }
 
 // Pensar numa forma de fazer o remover
-void remover(listaSeq L, int valor) {
+/*void remover(listaSeq L, int valor) {
 
-}
+}*/
 
 void inicializar(listaSeq * L) {
   L -> n = 0;
