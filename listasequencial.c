@@ -16,6 +16,10 @@ int buscarvalor(listaSeq L, int num) {
   return -1;
 }
 
+void modificar(listaSeq *L, int pos, int valornovo){
+  L->valores[pos]=valornovo;
+  }
+
 void inserirnofinal(listaSeq * L, int num) {
   if (L -> n < 10) {
     L -> valores[L -> n] = num;
@@ -61,6 +65,7 @@ int main() {
   inserirnoinicio( & lista, 6);
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
+  modificar(&lista,3,10);
   // remover(lista,6);
   return 0;
 }
