@@ -26,7 +26,7 @@ void inserirnofinal(listaSeq * L, int num) {
 }
 
 void inserirnoinicio(listaSeq * L, int num) {
-  int aux=L -> n;
+  int aux = L -> n;
   if (L -> n == 10) {
     printf("\nLista cheia");
   } else {
@@ -35,14 +35,14 @@ void inserirnoinicio(listaSeq * L, int num) {
       L -> n--;
     }
   }
-  L->n=aux;
+  L -> n = aux;
   L -> valores[0] = num;
 }
 
 // Pensar numa forma de fazer o remover
-void remover(listaSeq L, int valor){
-  
-    }
+void remover(listaSeq L, int valor) {
+
+}
 
 void inicializar(listaSeq * L) {
   L -> n = 0;
@@ -61,6 +61,6 @@ int main() {
   inserirnoinicio( & lista, 6);
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
- // remover(lista,6);
+  // remover(lista,6);
   return 0;
 }
