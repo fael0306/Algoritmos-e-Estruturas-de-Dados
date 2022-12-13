@@ -17,14 +17,9 @@ int buscarvalor(listaSeq L, int num) {
 }
 
 void inserirnofinal(listaSeq * L, int num) {
-  int k;
   if (L -> n < 10) {
-    if (buscarvalor( * L, num) == -1) {
-      L -> valores[L -> n] = num;
-      (L -> n) ++;
-    } else {
-      printf("Elemento já cadastrado.");
-    }
+    L -> valores[L -> n] = num;
+    (L -> n) ++;
   } else {
     printf("Lista cheia");
   }
@@ -43,6 +38,7 @@ int main() {
   inserirnofinal( & lista, 7);
   inserirnofinal( & lista, 1);
   inserirnofinal( & lista, 2);
+  inserirnofinal( & lista, 4);
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
 
