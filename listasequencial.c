@@ -26,7 +26,6 @@ void inserirnofinal(listaSeq * L, int num) {
 }
 
 void inserirnoinicio(listaSeq * L, int num) {
-  int k;
   if (L -> n == 10) {
     printf("Lista cheia");
   } else {
