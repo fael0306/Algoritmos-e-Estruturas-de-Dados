@@ -49,10 +49,19 @@ void inserirnoinicio(listaSeq * L, int num) {
   L -> valores[0] = num;
 }
 
-// Pensar numa forma de fazer o remover
-/*void remover(listaSeq L, int valor) {
-
-}*/
+// Verificar se está correto
+void remover(listaSeq * L, int valor) {
+  int v = buscarvalor( * L, valor);
+  if (v == -1) {
+    printf("\nO valor informado não está na lista");
+  } else {
+    while (v <= L -> n - 1) {
+      L -> valores[v] = L -> valores[v + 1];
+      v++;
+    }
+    (L -> n) --;
+  }
+}
 
 void inicializar(listaSeq * L) {
   L -> n = 0;
@@ -72,6 +81,6 @@ int main() {
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
   modificar( & lista, 3, 10);
-  // remover(lista,6);
+  remover( & lista, 6);
   return 0;
 }
