@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 typedef struct listaSeq {
 
   int n;
@@ -16,10 +18,13 @@ int buscarvalor(listaSeq L, int num) {
   return -1;
 }
 
-// Necessário verificar se a posição existe
-/*void modificar(listaSeq * L, int pos, int valornovo) {
-  L -> valores[pos] = valornovo;
-}*/
+void modificar(listaSeq * L, int pos, int valornovo) {
+  if (L -> n >= pos) {
+    L -> valores[pos] = valornovo;
+  } else {
+    printf("\nEsta posição não existe!");
+  }
+}
 
 void inserirnofinal(listaSeq * L, int num) {
   if (L -> n < 10) {
@@ -66,7 +71,7 @@ int main() {
   inserirnoinicio( & lista, 6);
   int busca = buscarvalor(lista, 7);
   int busca2 = buscarvalor(lista, 0);
-  //modificar( & lista, 3, 10);
+  modificar( & lista, 3, 10);
   // remover(lista,6);
   return 0;
 }
