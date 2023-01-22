@@ -43,9 +43,19 @@ void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   p -> inicio = novo;
 }
 
-//void exibir(Produtos * p){
-// while()
-//}
+/*int listavazia(Produtos * p){
+  if(p->inicio==NULL){
+    return true;
+  }
+  return false;
+}
+void exibir(Produtos * p){
+  while(listavazia(p)==false){
+    printf("%d",p->valor);
+        printf("\n");
+        p=p->prox;
+  }
+}*/
 
 int main() {
 
@@ -74,13 +84,16 @@ int main() {
       scanf("%f", & preco);
       cadastrar(p, codigo, nome, preco);
       break;
+    case 2:
+      exibir(p);
+      break;
     }
     printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
     scanf("%d", & o);
+
   }
   printf("\nEncerrando...");
 
-  //exibir()
-  getch();
+  //getch();
   return 0;
 }
