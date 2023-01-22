@@ -29,7 +29,6 @@ typedef struct Produto {
 }
 Produto;
 
-
 void cadastrar(Produto * p, int codigo, char name[50], float precos) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
@@ -48,6 +47,7 @@ int listavazia(Produto *p){
   return false;
 }
 
+/* Está imprimindo lixo
 void exibir(Produto *p){
   while(listavazia(p)==false){
         printf("%d",p->cod);
@@ -57,6 +57,7 @@ void exibir(Produto *p){
         p=p->prox;
     }
 }
+*/
 
 int main() {
 
