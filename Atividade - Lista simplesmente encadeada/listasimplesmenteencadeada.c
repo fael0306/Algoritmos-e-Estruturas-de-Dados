@@ -81,6 +81,6 @@ int main() {
   printf("\nEncerrando...");
 
   //exibir()
-  //getch();
+  getch();
   return 0;
 }
