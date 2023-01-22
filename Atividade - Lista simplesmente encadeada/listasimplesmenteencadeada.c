@@ -17,6 +17,7 @@ Você deve implementar procedimentos e/ou funções para as funcionalidades de u
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <locale.h>
 
 typedef struct Produto {
   int cod;
@@ -42,13 +43,38 @@ void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   p -> inicio = novo;
 }
 
+void exibir(Produtos * p){
+  
+}
+
 int main() {
+
+  setlocale(LC_ALL,"Portuguese");
+  
   struct Produtos listadeprodutos;
 
   Produtos * p = malloc(sizeof(Produtos));
 
-  cadastrar(p, 123, "Cerveja", 10);
-  cadastrar(p, 321, "Refrigerante", 9);
+  int o, codigo;
+  float preco;
+  char nome[50];
 
+  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  scanf("%d",&o);
+
+  switch(o){
+    case 1:
+      printf("\nDigite o código: ");
+      scanf("%d",&codigo);
+      printf("\nDigite o nome: ");
+      scanf("%s",&nome);
+      printf("\nDigite o preço: ");
+      scanf("%f",&preco);
+      cadastrar(p,codigo,nome,preco);
+      break;
+  }
+
+  exibir()
+  getch();
   return 0;
 }
