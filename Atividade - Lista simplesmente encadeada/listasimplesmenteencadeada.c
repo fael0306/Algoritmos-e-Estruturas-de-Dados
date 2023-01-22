@@ -98,6 +98,6 @@ printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um pro
     }
   printf("\nEncerrando...");
   
-  //getch();
+  getch();
   return 0;
   }
