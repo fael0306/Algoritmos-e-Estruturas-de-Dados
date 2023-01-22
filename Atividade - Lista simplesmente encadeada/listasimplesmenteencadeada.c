@@ -53,9 +53,9 @@ void exibir() {
     Produto * aux;
     aux = inicio;
     while (aux != NULL) {
-      printf("%d", aux -> cod);
-      printf("\n%s", aux -> nome);
-      printf("\n%.2f\n", aux -> preco);
+      printf("\nCódigo: %d", aux -> cod);
+      printf("\nNome: %s", aux -> nome);
+      printf("\nPreço: %.2f\n\n", aux -> preco);
       inicio = inicio -> prox;
       aux = inicio;
     }
@@ -64,7 +64,7 @@ void exibir() {
 
 int main() {
 
-  setlocale(LC_ALL,"Portuguese");
+  //setlocale(LC_ALL,"Portuguese");
 
   Produto * p = malloc(sizeof(Produto));
 
@@ -99,7 +99,6 @@ int main() {
     scanf("%d", & o);
   }
   printf("\nEncerrando...");
-  
-  getch();
+  //getch();
   return 0;
 }
