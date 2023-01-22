@@ -94,6 +94,6 @@ int main() {
   }
   printf("\nEncerrando...");
 
-  //getch();
+  getch();
   return 0;
 }
