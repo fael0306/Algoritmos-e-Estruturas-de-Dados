@@ -47,9 +47,8 @@ void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
 
 int main() {
 
-  //setlocale(LC_ALL,"Portuguese");
+  setlocale(LC_ALL,"Portuguese");
 
-  //struct Produtos produtos;
   Produtos * p = malloc(sizeof(Produtos));
 
   int o = 1, codigo;
