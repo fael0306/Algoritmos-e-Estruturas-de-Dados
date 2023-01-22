@@ -51,12 +51,12 @@ int main() {
 
   Produtos * p = malloc(sizeof(Produtos));
 
-  int o = 1, codigo;
+  int o, codigo;
   float preco;
   char nome[50];
 
-  //printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
-  //scanf("%d", & o);
+  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  scanf("%d", & o);
 
   while (o != 5) {
 
@@ -77,10 +77,8 @@ int main() {
     case 4:
       break;
     }
-    o = 5;
     printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
     scanf("%d", & o);
-
   }
   printf("\nEncerrando...");
 
