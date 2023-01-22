@@ -59,8 +59,8 @@ void exibir(Produtos * p){
 
 int main() {
 
-  setlocale(LC_ALL, "Portuguese");
-
+  setlocale(LC_ALL,"Portuguese");
+  
   struct Produtos listadeprodutos;
 
   Produtos * p = malloc(sizeof(Produtos));
@@ -68,32 +68,36 @@ int main() {
   int o, codigo;
   float preco;
   char nome[50];
+  
+printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  scanf("%d",&o);
+  
+  while(o!=5){
 
-  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
-  scanf("%d", & o);
-
-  while (o != 5) {
-
-    switch (o) {
+  switch(o){
     case 1:
       printf("\nDigite o código: ");
-      scanf("%d", & codigo);
+      scanf("%d",&codigo);
       printf("\nDigite o nome: ");
-      scanf("%s", & nome);
+      scanf("%s",&nome);
       printf("\nDigite o preço: ");
-      scanf("%f", & preco);
-      cadastrar(p, codigo, nome, preco);
+      scanf("%f",&preco);
+      cadastrar(p,codigo,nome,preco);
       break;
     case 2:
-      exibir(p);
+      //exibir(p);
       break;
-    }
-    printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
-    scanf("%d", & o);
-
+    case 3:
+      break;
+    case 4:
+      break;
   }
+   printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  scanf("%d",&o);
+ 
+    }
   printf("\nEncerrando...");
-
-  getch();
+  
+  //getch();
   return 0;
-}
+  }
