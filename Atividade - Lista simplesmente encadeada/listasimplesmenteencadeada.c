@@ -25,11 +25,16 @@ typedef struct Produto {
   char nome[50];
   float preco;
   struct Produto * prox;
-  struct Produto * inicio;
 }
 Produto;
 
-void cadastrar(Produto * p, int codigo, char name[50], float precos) {
+typedef struct Produtos {
+  struct Produto * inicio;
+  int tam;
+}
+Produtos;
+
+void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
   novo -> cod = codigo;
@@ -38,22 +43,21 @@ void cadastrar(Produto * p, int codigo, char name[50], float precos) {
 
   novo -> prox = p -> inicio;
   p -> inicio = novo;
-  p -> inicio = NULL;
 }
 
 int main() {
 
   //setlocale(LC_ALL,"Portuguese");
 
-  Produto * p;
-  p = malloc(sizeof(Produto));
+  //struct Produtos produtos;
+  Produtos * p = malloc(sizeof(Produtos));
 
-  int o, codigo;
+  int o = 1, codigo;
   float preco;
   char nome[50];
 
-  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
-  scanf("%d", & o);
+  //printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  //scanf("%d", & o);
 
   while (o != 5) {
 
@@ -65,22 +69,22 @@ int main() {
       scanf("%s", & nome);
       printf("\nDigite o preço: ");
       scanf("%f", & preco);
-      cadastrar(p, codigo, nome, preco);
       break;
     case 2:
-      //exibir(p);
+      // exibir(p);
       break;
     case 3:
       break;
     case 4:
       break;
     }
+    o = 5;
     printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
     scanf("%d", & o);
 
   }
   printf("\nEncerrando...");
 
-  //getch();
+  getch();
   return 0;
 }
