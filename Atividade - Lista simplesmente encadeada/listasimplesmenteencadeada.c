@@ -30,7 +30,7 @@ typedef struct Produtos {
 }
 Produtos;
 
-void insere(Produtos * p, int codigo) {
+void cadastrar(Produtos * p, int codigo) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
   novo -> cod = codigo;
