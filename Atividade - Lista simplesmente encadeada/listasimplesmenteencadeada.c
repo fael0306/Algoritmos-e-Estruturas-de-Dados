@@ -64,7 +64,7 @@ void exibir() {
 
 int main() {
 
-  //setlocale(LC_ALL,"Portuguese");
+  setlocale(LC_ALL,"Portuguese");
 
   Produto * p = malloc(sizeof(Produto));
 
