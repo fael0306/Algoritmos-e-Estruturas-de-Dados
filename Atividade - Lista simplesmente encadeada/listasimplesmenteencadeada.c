@@ -44,8 +44,8 @@ int main() {
 
   Produtos * p = malloc(sizeof(Produtos));
 
-  insere(p, 2);
-  insere(p, 10);
+  cadastrar(p, 2);
+  cadastrar(p, 10);
 
   return 0;
 }
