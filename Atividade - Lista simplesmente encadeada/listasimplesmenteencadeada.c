@@ -49,13 +49,3 @@ int main() {
 
   return 0;
 }
-int main() {
-  struct Lista lista1;
-
-  Lista * l = malloc(sizeof(Lista));
-
-  insere(l, 2);
-  insere(l, 10);
-  
-  return 0;
-}
