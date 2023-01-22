@@ -47,7 +47,7 @@ void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
 
 int main() {
 
-  setlocale(LC_ALL,"Portuguese");
+  setlocale(LC_ALL, "Portuguese");
 
   Produtos * p = malloc(sizeof(Produtos));
 
@@ -68,6 +68,7 @@ int main() {
       scanf("%s", & nome);
       printf("\nDigite o preço: ");
       scanf("%f", & preco);
+      cadastrar(p, codigo, nome, preco);
       break;
     case 2:
       // exibir(p);
