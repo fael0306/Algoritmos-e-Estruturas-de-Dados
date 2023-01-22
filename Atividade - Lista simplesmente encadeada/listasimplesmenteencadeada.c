@@ -25,32 +25,48 @@ typedef struct Produto {
   char nome[50];
   float preco;
   struct Produto * prox;
+  struct Produto * inicio;
 }
 Produto;
+Produto * inicio;
 
-typedef struct Produtos {
-  struct Produto * inicio;
-  int tam;
-}
-Produtos;
-
-// Funciona mas não limpa o último cadastrado do novo.
-void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
+void cadastrar(int codigo, char name[50], float precos) {
   Produto * novo;
-  novo = malloc(sizeof(Produto));
-  novo -> cod = codigo;
-  strcpy(novo -> nome, name);
-  novo -> preco = precos;
+  novo = (Produto * ) malloc(sizeof(Produto));
+  if (novo != NULL) {
+    novo -> cod = codigo;
+    strcpy(novo -> nome, name);
+    novo -> preco = precos;
+    novo -> prox = inicio;
+    inicio = novo;
+  }
+}
 
-  novo -> prox = p -> inicio;
-  p -> inicio = novo;
+int lista_vazia() {
+  if (inicio == NULL)
+    return 1;
+  return 0;
+}
+
+void exibir() {
+  if (inicio != NULL) {
+    Produto * aux;
+    aux = inicio;
+    while (aux != NULL) {
+      printf("%d", aux -> cod);
+      printf("\n%s", aux -> nome);
+      printf("\n%.2f\n", aux -> preco);
+      inicio = inicio -> prox;
+      aux = inicio;
+    }
+  }
 }
 
 int main() {
 
-  setlocale(LC_ALL, "Portuguese");
+  //setlocale(LC_ALL,"Portuguese");
 
-  Produtos * p = malloc(sizeof(Produtos));
+  Produto * p = malloc(sizeof(Produto));
 
   int o, codigo;
   float preco;
@@ -69,10 +85,10 @@ int main() {
       scanf("%s", & nome);
       printf("\nDigite o preço: ");
       scanf("%f", & preco);
-      cadastrar(p, codigo, nome, preco);
+      cadastrar(codigo, nome, preco);
       break;
     case 2:
-      // exibir(p);
+      exibir();
       break;
     case 3:
       break;
@@ -83,7 +99,7 @@ int main() {
     scanf("%d", & o);
   }
   printf("\nEncerrando...");
-
+  
   getch();
   return 0;
 }
