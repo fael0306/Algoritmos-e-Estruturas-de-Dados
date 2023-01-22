@@ -15,9 +15,13 @@ Você deve implementar procedimentos e/ou funções para as funcionalidades de u
 */
 
 #include <stdio.h>
+
 #include <stdlib.h>
+
 #include <string.h>
+
 #include <locale.h>
+
 #include <stdbool.h>
 
 typedef struct Produto {
@@ -62,9 +66,23 @@ void exibir() {
   }
 }
 
+void busca(int codigo) {
+  Produto * aux;
+  aux = inicio;
+  while (aux != NULL) {
+    if (aux -> cod == codigo) {
+      printf("\nCódigo: %d", aux -> cod);
+      printf("\nNome: %s", aux -> nome);
+      printf("\nPreço: %.2f\n\n", aux -> preco);
+    }
+    inicio = inicio -> prox;
+    aux = inicio;
+  }
+}
+
 int main() {
 
-  setlocale(LC_ALL,"Portuguese");
+  //setlocale(LC_ALL,"Portuguese");
 
   Produto * p = malloc(sizeof(Produto));
 
@@ -91,6 +109,9 @@ int main() {
       exibir();
       break;
     case 3:
+      printf("\nDigite o código: ");
+      scanf("%d", & codigo);
+      busca(codigo);
       break;
     case 4:
       break;
