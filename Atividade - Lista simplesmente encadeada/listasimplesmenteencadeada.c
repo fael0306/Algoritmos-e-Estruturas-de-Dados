@@ -34,6 +34,7 @@ typedef struct Produtos {
 }
 Produtos;
 
+// Funciona mas não limpa o último cadastrado do novo.
 void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
