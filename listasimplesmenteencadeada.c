@@ -23,7 +23,6 @@ void insere(Lista * p, int x) {
 }
 
 int main() {
-  struct Lista lista1;
 
   Lista * l = malloc(sizeof(Lista));
 
