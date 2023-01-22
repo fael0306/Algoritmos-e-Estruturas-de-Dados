@@ -18,21 +18,19 @@ Você deve implementar procedimentos e/ou funções para as funcionalidades de u
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
+#include <stdbool.h>
 
 typedef struct Produto {
   int cod;
   char nome[50];
   float preco;
   struct Produto * prox;
+  struct Produto * inicio;
 }
 Produto;
 
-typedef struct Produtos {
-  Produto * inicio;
-}
-Produtos;
 
-void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
+void cadastrar(Produto * p, int codigo, char name[50], float precos) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
   novo -> cod = codigo;
@@ -43,27 +41,30 @@ void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   p -> inicio = novo;
 }
 
-/*int listavazia(Produtos * p){
+int listavazia(Produto *p){
   if(p->inicio==NULL){
     return true;
   }
   return false;
 }
-void exibir(Produtos * p){
+
+void exibir(Produto *p){
   while(listavazia(p)==false){
-    printf("%d",p->valor);
+        printf("%d",p->cod);
+        printf("\n%s",p->nome);
+        printf("\n%.2f",p->preco);
         printf("\n");
         p=p->prox;
-  }
-}*/
+    }
+}
 
 int main() {
 
-  setlocale(LC_ALL,"Portuguese");
+  //setlocale(LC_ALL,"Portuguese");
   
-  struct Produtos listadeprodutos;
+  struct Produto listadeprodutos;
 
-  Produtos * p = malloc(sizeof(Produtos));
+  Produto * p = malloc(sizeof(Produto));
 
   int o, codigo;
   float preco;
@@ -85,7 +86,7 @@ printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um pro
       cadastrar(p,codigo,nome,preco);
       break;
     case 2:
-      //exibir(p);
+      exibir(&p);
       break;
     case 3:
       break;
@@ -98,6 +99,6 @@ printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um pro
     }
   printf("\nEncerrando...");
   
-  getch();
+  //getch();
   return 0;
   }
