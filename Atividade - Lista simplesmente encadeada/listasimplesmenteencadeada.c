@@ -28,6 +28,7 @@ typedef struct Produto {
   struct Produto * inicio;
 }
 Produto;
+
 Produto * inicio;
 
 void cadastrar(int codigo, char name[50], float precos) {
@@ -40,12 +41,6 @@ void cadastrar(int codigo, char name[50], float precos) {
     novo -> prox = inicio;
     inicio = novo;
   }
-}
-
-int lista_vazia() {
-  if (inicio == NULL)
-    return 1;
-  return 0;
 }
 
 void exibir() {
@@ -63,22 +58,46 @@ void exibir() {
 }
 
 void busca(int codigo) {
-  Produto * aux;
-  aux = inicio;
-  while (aux != NULL) {
-    if (aux -> cod == codigo) {
-      printf("\nCódigo: %d", aux -> cod);
-      printf("\nNome: %s", aux -> nome);
-      printf("\nPreço: %.2f\n\n", aux -> preco);
-    }
-    inicio = inicio -> prox;
+  if (inicio != NULL) {
+    Produto * aux;
     aux = inicio;
+    while (aux != NULL) {
+      if (aux -> cod == codigo) {
+        printf("\nCódigo: %d", aux -> cod);
+        printf("\nNome: %s", aux -> nome);
+        printf("\nPreço: %.2f\n\n", aux -> preco);
+      }
+      aux = aux -> prox;
+    }
+  } else {
+    printf("\nLista vazia!");
+  }
+}
+
+void remover(int codigo) {
+  Produto * ant = NULL;
+  Produto * aux = inicio;
+  if (inicio != NULL) {
+    while (aux != NULL && aux -> cod != codigo) {
+      ant = aux;
+      aux = aux -> prox;
+    }
+    if (aux == NULL) {
+      printf("Elemento não encontrado!");
+    } else {
+      if (ant == NULL) {
+        inicio = aux -> prox;
+      } else {
+        ant -> prox = aux -> prox;
+        free(aux);
+      }
+    }
   }
 }
 
 int main() {
 
-  //setlocale(LC_ALL,"Portuguese");
+  setlocale(LC_ALL,"Portuguese");
 
   Produto * p = malloc(sizeof(Produto));
 
@@ -86,7 +105,7 @@ int main() {
   float preco;
   char nome[50];
 
-  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+  printf("1 - Cadastrar produto\n2 - Exibir a lista de produtos (esta ação esvaziará a lista)\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
   scanf("%d", & o);
 
   while (o != 5) {
@@ -95,9 +114,9 @@ int main() {
     case 1:
       printf("\nDigite o código: ");
       scanf("%d", & codigo);
-      printf("\nDigite o nome: ");
+      printf("Digite o nome: ");
       scanf("%s", & nome);
-      printf("\nDigite o preço: ");
+      printf("Digite o preço: ");
       scanf("%f", & preco);
       cadastrar(codigo, nome, preco);
       break;
@@ -110,12 +129,16 @@ int main() {
       busca(codigo);
       break;
     case 4:
+      printf("\nDigite o código: ");
+      scanf("%d", & codigo);
+      remover(codigo);
       break;
     }
-    printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
+    printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos (esta ação esvaziará a lista)\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
     scanf("%d", & o);
   }
   printf("\nEncerrando...");
-  //getch();
+  
+  getch();
   return 0;
 }
