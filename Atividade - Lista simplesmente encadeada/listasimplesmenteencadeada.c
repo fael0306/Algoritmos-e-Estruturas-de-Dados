@@ -78,6 +78,8 @@ int main() {
     printf("\n1 - Cadastrar produto\n2 - Exibir a lista de produtos\n3 - Buscar um produto\n4 - Remover um produto\n5 - Sair\n");
     scanf("%d", & o);
   }
+  printf("\nEncerrando...");
+
   //exibir()
   //getch();
   return 0;
