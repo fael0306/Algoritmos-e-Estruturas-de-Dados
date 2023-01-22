@@ -15,13 +15,9 @@ Você deve implementar procedimentos e/ou funções para as funcionalidades de u
 */
 
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <string.h>
-
 #include <locale.h>
-
 #include <stdbool.h>
 
 typedef struct Produto {
@@ -120,7 +116,6 @@ int main() {
     scanf("%d", & o);
   }
   printf("\nEncerrando...");
-  
-  getch();
+  //getch();
   return 0;
 }
