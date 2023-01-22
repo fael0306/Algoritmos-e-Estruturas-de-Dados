@@ -16,6 +16,7 @@ Você deve implementar procedimentos e/ou funções para as funcionalidades de u
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct Produto {
   int cod;
@@ -30,10 +31,12 @@ typedef struct Produtos {
 }
 Produtos;
 
-void cadastrar(Produtos * p, int codigo) {
+void cadastrar(Produtos * p, int codigo, char name[50], float precos) {
   Produto * novo;
   novo = malloc(sizeof(Produto));
   novo -> cod = codigo;
+  strcpy(novo -> nome, name);
+  novo -> preco = precos;
 
   novo -> prox = p -> inicio;
   p -> inicio = novo;
@@ -44,8 +47,8 @@ int main() {
 
   Produtos * p = malloc(sizeof(Produtos));
 
-  cadastrar(p, 2);
-  cadastrar(p, 10);
+  cadastrar(p, 123, "Cerveja", 10);
+  cadastrar(p, 321, "Refrigerante", 9);
 
   return 0;
 }
