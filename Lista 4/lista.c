@@ -10,59 +10,6 @@ Lista;
 
 Lista * inicio;
 
-int somachaves() {
-  if (inicio != NULL) {
-    Lista * lista;
-    lista = malloc(sizeof(Lista));
-    lista = inicio;
-    int soma = 0;
-    while (lista != NULL) {
-      soma = soma + (lista -> n);
-      lista = lista -> prox;
-    }
-    return soma;
-  } else {
-    printf("\nLista vazia!");
-    return -1;
-  }
-}
-
-int nos() {
-  if (inicio != NULL) {
-    Lista * lista;
-    lista = malloc(sizeof(Lista));
-    lista = inicio;
-    int somanos = 0;
-    while (lista != NULL) {
-      somanos++;
-      lista = lista -> prox;
-    }
-    return somanos;
-  } else {
-    printf("\nLista vazia!");
-    return -1;
-  }
-}
-
-int maior(int n) {
-  if (inicio != NULL) {
-    Lista * lista;
-    lista = malloc(sizeof(Lista));
-    lista = inicio;
-    int soma = 0;
-    while (lista != NULL) {
-      if ((lista -> n) > n) {
-        soma++;
-      }
-      lista = lista -> prox;
-    }
-    return soma;
-  } else {
-    printf("\nLista vazia!");
-    return -1;
-  }
-}
-
 void inserir(int num) {
   Lista * nova;
   nova = malloc(sizeof(Lista));
@@ -84,6 +31,63 @@ void exibir() {
   }
 }
 
+// 1
+int somachaves() {
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int soma = 0;
+    while (lista != NULL) {
+      soma = soma + (lista -> n);
+      lista = lista -> prox;
+    }
+    return soma;
+  } else {
+    printf("\nLista vazia!");
+    return -1;
+  }
+}
+
+// 2
+int nos() {
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int somanos = 0;
+    while (lista != NULL) {
+      somanos++;
+      lista = lista -> prox;
+    }
+    return somanos;
+  } else {
+    printf("\nLista vazia!");
+    return -1;
+  }
+}
+
+// 3
+int maior(int n) {
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int soma = 0;
+    while (lista != NULL) {
+      if ((lista -> n) > n) {
+        soma++;
+      }
+      lista = lista -> prox;
+    }
+    return soma;
+  } else {
+    printf("\nLista vazia!");
+    return -1;
+  }
+}
+
+// 4
 int ult() {
   if (inicio != NULL) {
     Lista * lista;
@@ -99,6 +103,7 @@ int ult() {
   }
 }
 
+// 5
 void remover(int num) {
   Lista * ant = NULL;
   Lista * aux = inicio;
