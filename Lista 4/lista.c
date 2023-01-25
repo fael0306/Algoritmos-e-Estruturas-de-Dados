@@ -84,7 +84,6 @@ int main() {
 
   setlocale(LC_ALL, "portuguese");
 
-  Lista * l = malloc(sizeof(Lista));
   int n;
 
   inserir(1);
