@@ -70,6 +70,16 @@ void exibir() {
   }
 }
 
+int ult() {
+  Lista * lista;
+  lista = malloc(sizeof(Lista));
+  lista = inicio;
+  while (lista -> prox != NULL) {
+    lista = lista -> prox;
+  }
+  return (lista -> n);
+}
+
 int main() {
 
   setlocale(LC_ALL, "portuguese");
@@ -94,9 +104,10 @@ int main() {
   printf("\nA soma das chaves é: %d", somachaves());
   printf("\nA quantidade de nós é: %d", nos());
   printf("\nA quantidade de números maior do que %d é %d", n, maior(n));
+  printf("\nO último elemento da lista é: %d", ult());
   printf("\nSegue a lista: ");
   exibir();
-  
+
   getch();
   return 0;
 }
