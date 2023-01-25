@@ -144,6 +144,7 @@ int main() {
   inserir(33);
   inserir(34);
   inserir(2);
+  inserir(35);
 
   printf("Digite um número: ");
   scanf("%d", & n);
