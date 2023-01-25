@@ -10,28 +10,6 @@ Lista;
 
 Lista * inicio;
 
-void inserir(int num) {
-  Lista * nova;
-  nova = malloc(sizeof(Lista));
-  if (nova != NULL) {
-    nova -> n = num;
-    nova -> prox = inicio;
-    inicio = nova;
-  }
-}
-
-void exibir() {
-  if (inicio != NULL) {
-    Lista * aux;
-    aux = inicio;
-    while (aux != NULL) {
-      printf("%d ", aux -> n);
-      aux = aux -> prox;
-    }
-  }
-}
-
-// 1
 int somachaves() {
   if (inicio != NULL) {
     Lista * lista;
@@ -49,7 +27,6 @@ int somachaves() {
   }
 }
 
-// 2
 int nos() {
   if (inicio != NULL) {
     Lista * lista;
@@ -67,7 +44,6 @@ int nos() {
   }
 }
 
-// 3
 int maior(int n) {
   if (inicio != NULL) {
     Lista * lista;
@@ -87,7 +63,25 @@ int maior(int n) {
   }
 }
 
-// 4
+void inserir(int num) {
+  Lista * nova;
+  nova = malloc(sizeof(Lista));
+  if (nova != NULL) {
+    nova -> n = num;
+    nova -> prox = inicio;
+    inicio = nova;
+  }
+}
+
+void exibir() {
+  Lista * aux;
+  aux = inicio;
+  while (aux != NULL) {
+    printf("%d ", aux -> n);
+    aux = aux -> prox;
+  }
+}
+
 int ult() {
   if (inicio != NULL) {
     Lista * lista;
@@ -103,7 +97,6 @@ int ult() {
   }
 }
 
-// 5
 void remover(int num) {
   Lista * ant = NULL;
   Lista * aux = inicio;
