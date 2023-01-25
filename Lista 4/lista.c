@@ -11,60 +11,57 @@ Lista;
 Lista * inicio;
 
 int somachaves() {
-  if(inicio!=NULL){
-  Lista * lista;
-  lista = malloc(sizeof(Lista));
-  lista = inicio;
-  int soma = 0;
-  while (lista != NULL) {
-    soma = soma + (lista -> n);
-    lista = lista -> prox;
-  }
-  return soma;
-}
-  else{
-     printf("\nLista vazia!");
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int soma = 0;
+    while (lista != NULL) {
+      soma = soma + (lista -> n);
+      lista = lista -> prox;
+    }
+    return soma;
+  } else {
+    printf("\nLista vazia!");
     return -1;
   }
-  }
+}
 
 int nos() {
-  if(inicio!=NULL){
-  Lista * lista;
-  lista = malloc(sizeof(Lista));
-  lista = inicio;
-  int somanos = 0;
-  while (lista != NULL) {
-    somanos++;
-    lista = lista -> prox;
-  }
-  return somanos;
-}
-  else{
-     printf("\nLista vazia!");
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int somanos = 0;
+    while (lista != NULL) {
+      somanos++;
+      lista = lista -> prox;
+    }
+    return somanos;
+  } else {
+    printf("\nLista vazia!");
     return -1;
   }
-  }
+}
 
 int maior(int n) {
-  if(inicio!=NULL){
-  Lista * lista;
-  lista = malloc(sizeof(Lista));
-  lista = inicio;
-  int soma = 0;
-  while (lista != NULL) {
-    if ((lista -> n) > n) {
-      soma++;
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    int soma = 0;
+    while (lista != NULL) {
+      if ((lista -> n) > n) {
+        soma++;
+      }
+      lista = lista -> prox;
     }
-    lista = lista -> prox;
-  }
-  return soma;
-}
-  else{
-     printf("\nLista vazia!");
+    return soma;
+  } else {
+    printf("\nLista vazia!");
     return -1;
   }
-  }
+}
 
 void inserir(int num) {
   Lista * nova;
@@ -77,54 +74,28 @@ void inserir(int num) {
 }
 
 void exibir() {
-  Lista * aux;
-  aux = inicio;
- while (aux != NULL) {
+  if (inicio != NULL) {
+    Lista * aux;
+    aux = inicio;
+    while (aux != NULL) {
       printf("%d ", aux -> n);
       aux = aux -> prox;
     }
   }
-
-
-int ult() {
-  if(inicio!=NULL){
-  Lista * lista;
-  lista = malloc(sizeof(Lista));
-  lista = inicio;
-  while (lista -> prox != NULL) {
-    lista = lista -> prox;
-  }
-  return (lista -> n);
-    }
-  else{
-    printf("\nLista vazia!");
-    return -1;
-  }
 }
 
-void remover(int num){
-  Lista* ant=NULL;
-  Lista* aux=inicio;
-  if(inicio!=NULL){
-    while(aux!=NULL && aux->n!=num){
-      ant = aux;
-      aux = aux->prox;
+int ult() {
+  if (inicio != NULL) {
+    Lista * lista;
+    lista = malloc(sizeof(Lista));
+    lista = inicio;
+    while (lista -> prox != NULL) {
+      lista = lista -> prox;
     }
-    if(aux==NULL){
-      printf("\nElemento não encontrado.");
-    }
-    else{
-      if(ant==NULL){
-        inicio=aux->prox;
-      }
-      else{
-        ant->prox=aux->prox;
-        free(aux);
-      }
-    }
-  }
-  else{
+    return (lista -> n);
+  } else {
     printf("\nLista vazia!");
+    return -1;
   }
 }
 
@@ -148,25 +119,25 @@ int main() {
 
   printf("Digite um número: ");
   scanf("%d", & n);
-  
+
   printf("\nA soma das chaves é: %d", somachaves());
-  
+
   printf("\nA quantidade de nós é: %d", nos());
-  
+
   printf("\nA quantidade de números maior do que %d é %d", n, maior(n));
-  
+
   printf("\nO último elemento da lista é: %d", ult());
-  
+
   printf("\nSegue a lista: ");
   exibir();
-  
+
   printf("\n\nDigite um número para remover: ");
   scanf("%d", & n);
   remover(n);
-  
+
   printf("\nSegue a lista sem o número: ");
   exibir();
-  
+
   getch();
   return 0;
 }
