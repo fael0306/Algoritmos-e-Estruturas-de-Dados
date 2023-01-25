@@ -99,6 +99,32 @@ int ult() {
   }
 }
 
+void remover(int num) {
+  Lista * ant = NULL;
+  Lista * aux = inicio;
+  int encontrado = 0;
+  if (inicio != NULL) {
+    while (aux != NULL) {
+      if (aux -> n == num) {
+        if (ant == NULL) {
+          inicio = aux -> prox;
+        } else {
+          ant -> prox = aux -> prox;
+          free(aux);
+        }
+        encontrado = 1;
+      }
+      ant = aux;
+      aux = aux -> prox;
+    }
+    if (!encontrado) {
+      printf("\nElemento não encontrado.");
+    }
+  } else {
+    printf("\nLista vazia!");
+  }
+}
+
 int main() {
 
   setlocale(LC_ALL, "portuguese");
