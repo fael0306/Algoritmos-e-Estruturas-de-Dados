@@ -120,13 +120,11 @@ void inserirposicao(int num, int posicao) {
   nova = malloc(sizeof(Lista));
   if (nova != NULL) {
     nova -> n = num;
-
     Lista * aux = inicio;
     int i;
     for (i = 1; i < posicao - 1 && aux != NULL; i++) {
       aux = aux -> prox;
     }
-
     if (aux != NULL) {
       nova -> prox = aux -> prox;
       aux -> prox = nova;
