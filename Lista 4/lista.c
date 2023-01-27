@@ -98,28 +98,41 @@ int ult() {
 }
 
 void remover(int num) {
-  Lista * ant = NULL;
-  Lista * aux = inicio;
-  int encontrado = 0;
-  if (inicio != NULL) {
-    while (aux != NULL) {
-      if (aux -> n == num) {
-        if (ant == NULL) {
-          inicio = aux -> prox;
-        } else {
-          ant -> prox = aux -> prox;
-          free(aux);
-        }
-        encontrado = 1;
+  Lista * atual = inicio;
+  Lista * anterior = NULL;
+
+  while (atual != NULL) {
+    if (atual -> n == num) {
+      if (anterior == NULL) {
+        inicio = atual -> prox;
+      } else {
+        anterior -> prox = atual -> prox;
       }
-      ant = aux;
+    } else {
+      anterior = atual;
+    }
+    atual = atual -> prox;
+  }
+}
+
+void inserirposicao(int num, int posicao) {
+  Lista * nova;
+  nova = malloc(sizeof(Lista));
+  if (nova != NULL) {
+    nova -> n = num;
+
+    Lista * aux = inicio;
+    int i;
+    for (i = 1; i < posicao - 1 && aux != NULL; i++) {
       aux = aux -> prox;
     }
-    if (!encontrado) {
-      printf("\nElemento não encontrado.");
+
+    if (aux != NULL) {
+      nova -> prox = aux -> prox;
+      aux -> prox = nova;
+    } else {
+      printf("Posição inválida!");
     }
-  } else {
-    printf("\nLista vazia!");
   }
 }
 
@@ -140,6 +153,7 @@ int main() {
   inserir(34);
   inserir(2);
   inserir(35);
+  inserirposicao(28, 2);
 
   printf("Digite um número: ");
   scanf("%d", & n);
