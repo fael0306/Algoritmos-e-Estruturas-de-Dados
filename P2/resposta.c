@@ -70,7 +70,6 @@ void filtro() {
     aux = aux -> prox;
     printf("");
   }
-
 }
 
 int main() {
@@ -78,6 +77,7 @@ int main() {
   int resp = 1;
   char lixo[10];
   livro dado;
+
   do {
     printf("\nTítulo do livro: ");
     scanf("%s", dado.titulo);
