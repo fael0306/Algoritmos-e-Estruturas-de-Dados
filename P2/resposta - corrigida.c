@@ -1,5 +1,5 @@
 /* Nome: Rafael Manteiga Balbino
-  Matrícula: 201920649111 */
+Matrícula: 201920649111 */
 
 #include <stdlib.h>
 #include <string.h>
@@ -55,20 +55,26 @@ void imprimir() {
   }
 }
 
-void filtro() {
-  noLivro * aux = inicioL;
-  while (aux != NULL) {
-    if (aux -> campos.ano < 2010) {
-      printf("\n\nTítulo: %s", aux -> campos.titulo);
-      printf("\nAutor: %s", aux -> campos.autor);
-      printf("\nAno: %d", aux -> campos.ano);
+void filtro(livro * vetor, int n, livro * antes, livro * depois) {
+  int contadorAntes = 0, contadorDepois = 0;
+  for (int i = 0; i < n; i++) {
+    if (vetor[i].ano < 2010) {
+      antes[contadorAntes++] = vetor[i];
+      insereLivro(vetor[i], 1);
     } else {
-      printf("\n\nTítulo: %s", aux -> campos.titulo);
-      printf("\nAutor: %s", aux -> campos.autor);
-      printf("\nAno: %d", aux -> campos.ano);
+      depois[contadorDepois++] = vetor[i];
+      insereLivro(vetor[i], 1);
     }
-    aux = aux -> prox;
-    printf("");
+  }
+
+  printf("\n\nLivros lançados antes de 2010:\n");
+  for (int i = 0; i < contadorAntes; i++) {
+    printf("%s - %d\n", antes[i].titulo, antes[i].ano);
+  }
+
+  printf("\nLivros lançados depois de 2010:\n");
+  for (int i = 0; i < contadorDepois; i++) {
+    printf("%s - %d\n", depois[i].titulo, depois[i].ano);
   }
 }
 
@@ -76,24 +82,26 @@ int main() {
   inicioL = NULL;
   int resp = 1;
   char lixo[10];
-  livro dado;
+  livro vetor[50];
+  livro antes[50];
+  livro depois[50];
+  int n = 0;
 
   do {
-    printf("\nTítulo do livro: ");
+    livro dado;
+    printf("\nDigite o título do livro: ");
     scanf("%s", dado.titulo);
-    printf("\nAutor do livro: ");
+    printf("Digite o autor do livro: ");
     scanf("%s", dado.autor);
-    printf("\nAno de publicação: ");
+    printf("Digite o ano de lançamento do livro: ");
     scanf("%d", & dado.ano);
-    insereLivro(dado, 1);
-    printf("\n\nDeseja cadastrar um novo livro (1- sim ou 2- não)? ");
+    vetor[n++] = dado;
+    printf("Deseja inserir outro livro? (1 - sim / 0 - não): ");
     scanf("%d", & resp);
-  } while (resp == 1);
+  } while (resp);
 
-  //chamada das funções criadas e impressão
-  filtro();
-  printf("\n");
-  printf("\n");
+  filtro(vetor, n, antes, depois);
+  printf("\n\nTodos os livros: ");
   imprimir();
 
   return 0;
