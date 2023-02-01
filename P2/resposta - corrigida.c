@@ -66,12 +66,10 @@ void filtro(livro * vetor, int n, livro * antes, livro * depois) {
       insereLivro(vetor[i], 1);
     }
   }
-
   printf("\n\nLivros lançados antes de 2010:\n");
   for (int i = 0; i < contadorAntes; i++) {
     printf("%s - %d\n", antes[i].titulo, antes[i].ano);
   }
-
   printf("\nLivros lançados depois de 2010:\n");
   for (int i = 0; i < contadorDepois; i++) {
     printf("%s - %d\n", depois[i].titulo, depois[i].ano);
@@ -101,6 +99,7 @@ int main() {
   } while (resp);
 
   filtro(vetor, n, antes, depois);
+
   printf("\n\nTodos os livros: ");
   imprimir();
 
