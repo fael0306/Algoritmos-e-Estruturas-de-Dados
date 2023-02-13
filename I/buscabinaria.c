@@ -3,11 +3,7 @@
 #include <locale.h>
 
 // VERIFICAR SE ESTÁ CORRETO
-// Complexidade: quantos passos são executados
-
-// Melhor caso: o número procurado está no meio -> O(1) no máximo 1
-// Pior caso: o número procurado está em primeiro ou último -> O(log(n)) no máximo log(n)
-// Caso médio: O((log(n)+1)/2)
+// A complexidade no melhor, pior e caso médio caso é O(log n), já que a busca divide o espaço de busca pela metade em cada iteração.
 
 int buscabinaria(int n, int vetor[], int e, int d) {
 
