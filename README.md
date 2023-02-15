@@ -4,7 +4,7 @@ Repositório para guardar algoritmos da matérias Algoritmos e Estruturas de Dad
 
 - _Ementa I_
 
--I. Introdução à complexidade de algoritmos
+- I. Introdução à complexidade de algoritmos
 
 Definição de complexidade de algoritmos
 
