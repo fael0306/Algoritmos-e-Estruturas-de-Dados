@@ -2,111 +2,109 @@
 #include <stdlib.h>
 #include <time.h>
 
-void merge(int arr[], int left[], int right[], int left_size, int right_size) {
-    int i = 0, j = 0, k = 0;
-    
-    while (i < left_size && j < right_size) {
-        if (left[i] < right[j]) {
-            arr[k] = left[i];
-            i++;
-        } else {
-            arr[k] = right[j];
-            j++;
+void mergeSort(int arr[], int low, int high) {
+    if (low < high) {
+        int mid = low + (high - low) / 2;
+
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+
+        int leftLen = mid - low + 1;
+        int rightLen = high - mid;
+
+        int left[leftLen];
+        int right[rightLen];
+
+        for (int i = 0; i < leftLen; i++) {
+            left[i] = arr[low + i];
         }
-        k++;
-    }
-
-    while (i < left_size) {
-        arr[k] = left[i];
-        i++;
-        k++;
-    }
-
-    while (j < right_size) {
-        arr[k] = right[j];
-        j++;
-        k++;
-    }
-}
-
-void mergeSort(int arr[], int arr_size) {
-    if (arr_size > 1) {
-        int mid = arr_size / 2;
-        int *left = (int *)malloc(mid * sizeof(int));
-        int *right = (int *)malloc((arr_size - mid) * sizeof(int));
-
-        for (int i = 0; i < mid; i++) {
-            left[i] = arr[i];
+        for (int i = 0; i < rightLen; i++) {
+            right[i] = arr[mid + 1 + i];
         }
 
-        for (int i = mid; i < arr_size; i++) {
-            right[i - mid] = arr[i];
-        }
+        int i = 0, j = 0, k = low;
 
-        mergeSort(left, mid);
-        mergeSort(right, arr_size - mid);
-        merge(arr, left, right, mid, arr_size - mid);
-
-        free(left);
-        free(right);
-    }
-}
-
-void quickSort(int arr[], int left, int right) {
-    if (left < right) {
-        int pivot = arr[left];
-        int low = left + 1;
-        int high = right;
-
-        while (1) {
-            while (low <= high && arr[high] >= pivot) {
-                high--;
-            }
-            while (low <= high && arr[low] <= pivot) {
-                low++;
-            }
-            if (low <= high) {
-                int temp = arr[low];
-                arr[low] = arr[high];
-                arr[high] = temp;
+        while (i < leftLen && j < rightLen) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
             } else {
-                break;
+                arr[k++] = right[j++];
             }
         }
 
-        int temp = arr[left];
-        arr[left] = arr[high];
-        arr[high] = temp;
+        while (i < leftLen) {
+            arr[k++] = left[i++];
+        }
 
-        quickSort(arr, left, high - 1);
-        quickSort(arr, high + 1, right);
+        while (j < rightLen) {
+            arr[k++] = right[j++];
+        }
+    }
+}
+
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pivot = arr[low];
+        int i = low;
+        int j = high;
+
+        while (i < j) {
+            while (i < j && arr[j] > pivot) {
+                j--;
+            }
+            if (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+
+            while (i < j && arr[i] <= pivot) {
+                i++;
+            }
+            if (i < j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
+            }
+        }
+
+        quickSort(arr, low, i - 1);
+        quickSort(arr, i + 1, high);
     }
 }
 
 int main() {
-    int size = 5000;
-    int *arr = (int *)malloc(size * sizeof(int));
-
+    int n = 5000;
+    int arr[n];
     srand(time(NULL));
-    for (int k = 0; k < size; k++) {
-        arr[k] = rand() % 10000000;
+
+    for (int i = 0; i < n; i++) {
+        arr[i] = rand() % 10000001;
     }
 
     clock_t start, end;
     double cpu_time_used;
 
     start = clock();
-    quickSort(arr, 0, size - 1);
+    quickSort(arr, 0, n - 1);
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Tempo de execução do Quicksort em segundos: %lf\n", cpu_time_used);
 
+    int arr2[n];
+    for (int i = 0; i < n; i++) {
+        arr2[i] = arr[i];  // Copia o vetor ordenado pelo Quicksort para o Mergesort
+    }
+
     start = clock();
-    mergeSort(arr, size);
+    mergeSort(arr2, 0, n - 1);
     end = clock();
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
     printf("Tempo de execução do Mergesort em segundos: %lf\n", cpu_time_used);
 
-    free(arr);
     return 0;
 }
