@@ -18,5 +18,5 @@ def Moedas(n, V):
 
 # Exemplo de uso:
 V = [1, 5, 10, 25, 50, 100]
-resultado = Moedas(165, V)
+resultado = Moedas(50, V)
 print("Número de maneiras de fazer 50 usando as moedas:", resultado)
