@@ -26,7 +26,7 @@ int Moedas(int n, int V[], int lenV) {
 
 int main() {
     int V[] = {1, 5, 10, 25, 50, 100};
-    int resultado = Moedas(165, V, sizeof(V) / sizeof(V[0]));
+    int resultado = Moedas(50, V, sizeof(V) / sizeof(V[0]));
     printf("Número de maneiras de fazer 50 usando as moedas: %d\n", resultado);
     return 0;
 }
