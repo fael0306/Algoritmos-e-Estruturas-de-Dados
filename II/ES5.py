@@ -19,10 +19,19 @@ def encontrar_cobertura_minima(segmentos, a, b):
 
     return cobertura_minima
 
-segmentos = [(1, 3), (2, 5), (4, 7), (6, 9)]
-a = 2
-b = 8
+segmentos = []
+print("Digite os pares de números em ordem para montar os segmentos.")
+x = int(input("Digite o primeiro número do par (digite negativo para encerrar): "))
+y = int(input("Digite o segundo número do par (digite negativo para encerrar): "))
 
+while x>=0 or y>=0:
+    segmentos.append((x,y))
+    x = int(input("Digite o primeiro número do par (digite negativo para encerrar): "))
+    y = int(input("Digite o segundo número do par (digite negativo para encerrar): "))
+
+a = int(input("Digite o primeiro número do intervalo: "))
+b = int(input("Digite o segundo número do intervalo: "))
+    
 resultado = encontrar_cobertura_minima(segmentos, a, b)
 if isinstance(resultado, list):
     print("Cobertura mínima:")
